@@ -6,7 +6,6 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
 ?>
 <!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<script src="http://tjs.sjs.sinajs.cn/t35/apps/opent/js/frames/client.js" language="JavaScript"></script>
 <head>
 <title><?php echo $hhtitle.'-'.$blogname; ?></title>
 <style type="text/css" id="internalStyle">
