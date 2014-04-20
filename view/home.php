@@ -27,7 +27,7 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
   top: 86px;
 }
 .j11:hover {
-  background: url("./view/j11v.png") no-repeat;
+  background: url("./view/<?php echo $mname[0];?>.png") no-repeat;
 }
 .j5 {
   width: 303px;
@@ -36,7 +36,7 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
   top: 167px;
 }
 .j5:hover {
-  background: url("./view/j5.png") no-repeat;
+  background: url("./view/<?php echo $mname[1];?>.png") no-repeat;
 }
 .j17 {
   width: 432px;
@@ -45,7 +45,7 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
   top: 8px;
 }
 .j17:hover {
-  background: url("./view/j17.png") no-repeat;
+  background: url("./view/<?php echo $mname[2];?>.png") no-repeat;
 }
 </style>
 祭童：

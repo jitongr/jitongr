@@ -20,7 +20,16 @@ $vsid=intval($_SESSION['views']);
 // 首页
 
 if (empty ($action) && empty ($_GET['cp'])&& empty ($_GET['keyword'])) {
-   include View::getView('head');
+$age = intval($_GET['age']) ;
+$mname=array("j11","j5","j17");
+if($age==11)
+  $mname=array("j11v","j5b","j17b");
+  if($age==5)
+  $mname=array("j11","j5v","j17bb");
+  if($age==17)
+  $mname=array("j11b","j5bb","j17v");
+
+	include View::getView('head');
 	include View::getView('home');
 	include View::getView('footer');
 }
