@@ -13,25 +13,50 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
   position: relative;
   cursor: pointer;
 }
-.j11 {
+.j11,
+.j5,
+.j17 {
   position: absolute;
   display: block;
   z-index: 2;
 }
 .j11 {
-  width: 425px;
-  height: 454px;
-  right: 52px;
-  bottom: 37px;
+  width: 384px;
+  height: 449px;
+  left: 0px;
+  top: 86px;
 }
 .j11:hover {
-  background: url("./view/j11.png") no-repeat;
+  background: url("./view/j11v.png") no-repeat;
+}
+.j5 {
+  width: 303px;
+  height: 337px;
+  left: 250px;
+  top: 167px;
+}
+.j5:hover {
+  background: url("./view/j5.png") no-repeat;
+}
+.j17 {
+  width: 432px;
+  height: 555px;
+  left: 388px;
+  top: 8px;
+}
+.j17:hover {
+  background: url("./view/j17.png") no-repeat;
 }
 </style>
 祭童：
 <div id="content">
 
-	<div id="crucify" class="crucify">
+<div id="crucify" class="crucify">
+<a  class="j17" href="index.php?age=17#crucify"></a>
+<a  class="j11" href="index.php?age=11#crucify"></a>	
+<a  class="j5" href="index.php?age=5#crucify"></a>	
+	
+	<?php /*
    <a  class="j11" coords="182,158,252,312" 
        href="index.php?age=11#crucify" target="_self" >11岁男孩-吉童"</a>
           <a  coords="114,124,177,188" 
@@ -68,6 +93,8 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
        href="index.php?age=17&p=legs#crucify" target="_self" >17岁的男孩-钰林的双腿"</a>
        <a  coords="594,509,626,557" 
        href="index.php?age=17&p=feet#crucify" target="_self" >17岁的男孩-钰林的双脚"</a>
+  */ 
+	?>
 </div>
 <DIV style="MARGIN: 10px auto; BACKGROUND:url(/zhien/yun.jpg); HEIGHT: 584px;;" >
 <br><br><h2><a href="?post=<?php echo $valuz['gid']; ?>"><?php echo $valuz['title']; ?></a></h2>
