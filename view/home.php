@@ -5,27 +5,54 @@
 if(!defined('EMLOG_ROOT')) {exit('error!');} 
 ?>
 
-<div id="content">
-<div id="contentleft">
-<table width="100%" cellspacing=0 cellpadding=0 style="font-size:12px">
 
-    <tr>
-        <th style="text-align:left;">
-        
-        <h2><a href="?post=<?php echo $valuz['gid']; ?>"><?php echo $valuz['title']; ?></a></h2>
-	<p class="date">作者：<?php ($valuz['author']); ?> 发布于：<?php echo gmdate('Y-n-j G:i l', $valuz['date']); ?> 
-	</p>
-	<?php echo $valuz['content']; ?>
-	<p class="count">
-	评论(<?php echo $valuz['comnum']; ?>)
-	引用(<?php echo $valuz['tbcount']; ?>)
-	<a href="?post=<?php echo $valuz['gid']; ?>">浏览(<?php echo $valuz['views']; ?>)</a>
-	</p>
-        
-        </th>
-        <th style="text-align:left;">
 祭童：
-           
+<div id="content">
+
+	<div id="crucify"></div>
+<img alt="十字架上的孩子们" src="<?php echo BLOG_URL; ?>/view/cruboys.jpg" width="819" height="584" align="left" usemap="#boys" />
+<map name="boys">
+     <area class="text" id="name" shape="rect" coords="182,158,252,312" 
+       href="index.php?age=11#crucify" target="_self" title="11岁男孩-吉童"/>
+          <area class="text" id="name" shape="rect" coords="114,124,177,188" 
+       href="index.php?age=11&p=head#crucify" target="_self" title="11岁男孩-吉童的头"/>
+            <area class="text" id="name" shape="rect" coords="0,87,39,122" 
+       href="index.php?age=11&p=lefthand#crucify" target="_self" title="11岁男孩-吉童的左手"/>
+            <area class="text" id="name" shape="rect" coords="339,95,380,123" 
+       href="index.php?age=11&p=righthand#crucify" target="_self" title="11岁男孩-吉童的右手"/>
+            <area class="text" id="name" shape="rect" coords="191,328,240,478" 
+       href="index.php?age=11&p=legs#crucify" target="_self" title="11岁男孩-吉童的双腿"/>
+            <area class="text" id="name" shape="rect" coords="189,484,230,530" 
+       href="index.php?age=11&p=feet#crucify" target="_self" title="11岁男孩-吉童的双脚"/>  
+     <area class="text" id="name" shape="rect" coords="363,245,432,341" 
+       href="index.php?age=5#crucify" target="_self" title="5岁幼童-桐柯"/>
+       <area class="text" id="name" shape="rect" coords="357,167,412,231" 
+       href="index.php?age=5&p=head#crucify" target="_self" title="5岁幼童-桐柯的头"/>
+       <area class="text" id="name" shape="rect" coords="253,205,290,234" 
+       href="index.php?age=5&p=lefthand#crucify" target="_self" title="5岁幼童-桐柯的左手"/>
+       <area class="text" id="name" shape="rect" coords="508,202,544,228" 
+       href="index.php?age=5&p=righthand#crucify" target="_self" title="5岁幼童-桐柯的右手"/>
+       <area class="text" id="name" shape="rect" coords="372,376,433,456" 
+       href="index.php?age=5&p=legs#crucify" target="_self" title="5岁幼童-桐柯的双腿"/>
+       <area class="text" id="name" shape="rect" coords="388,469,428,501" 
+       href="index.php?age=5&p=feet#crucify" target="_self" title="5岁幼童-桐柯的双脚"/>
+     <area class="text" id="name" shape="rect" coords="546,158,657,303" 
+       href="index.php?age=17#crucify" target="_self" title="17岁的男孩-钰林"/>
+       <area class="text" id="name" shape="rect" coords="579,71,637,155" 
+       href="index.php?age=17&p=head#crucify" target="_self" title="17岁的男孩-钰林的头"/>
+       <area class="text" id="name" shape="rect" coords="381,3,423,47" 
+       href="index.php?age=17&p=lefthand#crucify" target="_self" title="17岁的男孩-钰林的左手"/>
+       <area class="text" id="name" shape="rect" coords="768,23,811,63" 
+       href="index.php?age=17&p=righthand#crucify" target="_self" title="17岁的男孩-钰林的右手"/>
+       <area class="text" id="name" shape="rect" coords="567,325,640,498" 
+       href="index.php?age=17&p=legs#crucify" target="_self" title="17岁的男孩-钰林的双腿"/>
+       <area class="text" id="name" shape="rect" coords="594,509,626,557" 
+       href="index.php?age=17&p=feet#crucify" target="_self" title="17岁的男孩-钰林的双脚"/>
+</map>
+
+<DIV style="MARGIN: 10px auto; BACKGROUND:url(/zhien/yun.jpg); HEIGHT: 584px;;" >
+<br><br><h2><a href="?post=<?php echo $valuz['gid']; ?>"><?php echo $valuz['title']; ?></a></h2>
+<?php echo $valuz['content']; ?></DIV>
  <script type="text/javascript">
 	function check() {
 		if (document.getElementById('question').value == ""
@@ -106,7 +133,7 @@ form {	text-align: left;}
 
 		if (xmlhttp != null) {
 			xmlhttp.onreadystatechange = state_Change;
-			xmlhttp.open("POST", "./toddler.php", true);
+			xmlhttp.open("POST", "./index.php", true);
 			xmlhttp.setRequestHeader("Content-type",
 					"application/x-www-form-urlencoded");
 			xmlhttp.send("chat=" + document.getElementById('text').value);
@@ -132,7 +159,8 @@ form {	text-align: left;}
 		}
 	}
 </script>
-<body  onkeydown="down(event.keyCode)" style="text-align: center;">
+
+<div id="content">
 	<div class="container">
 		<div class="main">
 			<div id="result"></div>
@@ -141,9 +169,5 @@ form {	text-align: left;}
 				<input type="button" value="发送" id="btn" onclick="javascript:if(document.getElementById('text').value==''){alert('输入内容不能为空！');}else{chat();}" />
 			</div>
 		</div>
-	</div>       
-        
+</div>       
 
-</th>
-  </tr>
-  </table>

@@ -27,7 +27,7 @@ a:link,a:visited,a:hover,a:active {text-decoration: none;color:#333;}
 .texts{width:92%; height:200px;}.excerpt{width:92%; height:100px;}
 </style>
 </head>
-<body>
+<body  onkeydown="down(event.keyCode)" >
 <div id="top">
 <div id="blogname"><?php echo $blogname; ?></div>
 </div>
