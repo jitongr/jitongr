@@ -57,7 +57,7 @@ define('ROLE', ISLOGIN === true ? $userData['role'] : 'visitor');
 define('UID', ISLOGIN === true ? $userData['uid'] : 0);
 //博客固定地址
 //define('BLOG_URL', Option::get('blogurl'));
-define('BLOG_URL', "/jitongr/jitongr/");
+define('BLOG_URL', "/jitongr/");
 //模板库地址
 define('TPLS_URL', BLOG_URL.'content/templates/');
 //模板库路径
