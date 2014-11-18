@@ -31,22 +31,5 @@ a:link,a:visited,a:hover,a:active {text-decoration: none;color:#333;}
 <div id="blogname"><?php echo $blogname; ?></div>
 </div>
 <div id="navi">
-<a href="<?php echo BLOG_URL; ?>?cp=7" >钉十字架</a>
-<a href="<?php echo BLOG_URL; ?>?cp=1" >酷刑</a> 
-<a href="<?php echo BLOG_URL; ?>?cp=2" >幼童</a> 
-<a href="<?php echo BLOG_URL; ?>?cp=3" >孩子</a> 
-<a href="<?php echo BLOG_URL; ?>?cp=47" >脱光衣服</a>
-<a href="<?php echo BLOG_URL; ?>?cp=5" >吊起来</a> 
-<a href="<?php echo BLOG_URL; ?>?cp=4" >鞭打</a> 
-<a href="<?php echo BLOG_URL; ?>?cp=30" >活埋</a> 
-||||
 
-<a href="/" ><?php if(UID) echo $userData['username']; else echo "游客"; ?></a>，您好！
-<a href="<?php echo BLOG_URL; ?>" >首页</a> 
-
-<?php if(ISLOGIN === true): ?>
-<a href="<?php echo BLOG_URL; ?>?action=logout" >退出</a> 
-<?php else:?>
-<a href="<?php echo BLOG_URL; ?>?action=login" <?php if($action=='about')echo 'id="active"'; ?> >登录</a>
-<?php endif;?>
 </div>

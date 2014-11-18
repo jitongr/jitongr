@@ -34,14 +34,12 @@ $DB = MySql::getInstance();
 if(!isset($_SESSION['views']))  
 {
 	$_SESSION['views']=1;
-    $DB->query("INSERT INTO accelog (method,tou,lastu,expler,date,aip,times) VALUES (
-		'".$_SERVER[REQUEST_METHOD]."','".addslashes($_SERVER[REQUEST_URI])."','".
-addslashes($_SERVER[HTTP_REFERER])."','".addslashes($_SERVER[HTTP_USER_AGENT])."','$ltime','".
-$_SERVER['REMOTE_ADDR']."','".$_SESSION['views']."')");
 }
 else 
 $_SESSION['views']++;
-
+    $DB->query("INSERT INTO accelog (method,tou,lastu,expler,date,aip,times) VALUES (
+		'".$_SERVER[REQUEST_METHOD]."','".addslashes($_SERVER[REQUEST_URI])."','".
+addslashes($_SERVER[HTTP_REFERER])."','".addslashes($_SERVER[HTTP_USER_AGENT])."','$ltime','".$_SERVER['REMOTE_ADDR']."','".$_SESSION['views']."')");
 require_once EMLOG_ROOT.'/lib/function.login.php';
 
 doStripslashes();
@@ -66,4 +64,4 @@ define('TPLS_PATH', EMLOG_ROOT.'/views/');
 //define('DYNAMIC_BLOGURL', getBlogUrl());
 //前台模板URL
 //define('TEMPLATE_URL', 	TPLS_URL.Option::get('nonce_templet').'/');
-$blogname="祭童儿";
+$blogname="宝玉祭童";
