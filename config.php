@@ -6,10 +6,10 @@ define('DB_USER','jitong');
 //database password
 define('DB_PASSWD','lin');
 //database name
-define('DB_NAME','jitongr');
+define('DB_NAME','jt');
 //database prefix
-define('DB_PREFIX','emlog_');
+define('DB_PREFIX','jt_');
 //auth key
-define('AUTH_KEY','VQuj%RO^Ng067rbnn&gZ0lKb&Sjf7dsetrE6b3bb87949a3cb84fe14');
+define('AUTH_KEY','VQuj%RO^Ng0jitongjf7dsetrE6b3bb87949a3cb84fe14');
 //cookie name
 define('AUTH_COOKIE_NAME','JITONGmTFnlhDvNYRq4EU87Z96iluMFkP');
