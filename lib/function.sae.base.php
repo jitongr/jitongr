@@ -7,12 +7,13 @@
 
 function __autoload($class) {
 	$class = strtolower($class);
-    if (file_exists(EMLOG_ROOT . '/include/model/'. $class . '.php')) {
-    	require_once(EMLOG_ROOT . '/include/model/'. $class . '.php');
-    } elseif (file_exists(EMLOG_ROOT . '/include/lib/'. $class . '.php')) {
-        require_once(EMLOG_ROOT . '/include/lib/'. $class . '.php');
-    } elseif (file_exists(EMLOG_ROOT . '/include/controller/'. $class . '.php')) {
-        require_once(EMLOG_ROOT . '/include/controller/'. $class . '.php');
+ //   if (file_exists(EMLOG_ROOT . '/include/model/'. $class . '.php')) {
+ //   	require_once(EMLOG_ROOT . '/include/model/'. $class . '.php');
+ //   } else
+    if (file_exists(EMLOG_ROOT . '/lib/'. $class . '.php')) {
+        require_once(EMLOG_ROOT . '/lib/'. $class . '.php');
+   // } elseif (file_exists(EMLOG_ROOT . '/include/controller/'. $class . '.php')) {
+    //    require_once(EMLOG_ROOT . '/include/controller/'. $class . '.php');
     } else{
     	emMsg($class.'加载失败。', BLOG_URL);
     }
