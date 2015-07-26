@@ -28,7 +28,8 @@ a:link,a:visited,a:hover,a:active {text-decoration: none;color:#333;}
 </head>
 <body  onkeydown="down(event.keyCode)" >
 <div id="top">
-<div id="blogname"><?php echo $blogname; ?></div>
+<div id="blogname"><?php echo $blogname; ?> 桐楠、桐柯、郁林
+</div>
 </div>
 <div id="navi">
 
