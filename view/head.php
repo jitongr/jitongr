@@ -28,7 +28,7 @@ a:link,a:visited,a:hover,a:active {text-decoration: none;color:#333;}
 </head>
 <body  onkeydown="down(event.keyCode)" >
 <div id="top">
-<div id="blogname"><?php echo $blogname; ?> 桐楠、桐柯、郁林
+<div id="blogname"><a href='<? echo BLOG_URL;?>' style='color:#FFF'>十字架上的<?php echo $blogname; ?></a>
 </div>
 </div>
 <div id="navi">

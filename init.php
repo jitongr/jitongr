@@ -29,7 +29,7 @@ if(IS_SAE){
 }
 
 //print_r($_SERVER);
-$ltime = time();
+$seid=session_id();
 $DB = MySql::getInstance();
 if(!isset($_SESSION['views']))  
 {
@@ -37,9 +37,12 @@ if(!isset($_SESSION['views']))
 }
 else 
 $_SESSION['views']++;
-    $DB->query("INSERT INTO accelog (method,tou,lastu,expler,date,aip,times) VALUES (
+
+ $ltime = date('Y-m-d H:i:s');
+	$DB->query("INSERT INTO jt_accelog (method,tou,lastu,expler,vdate,aip,times,seid) VALUES (
 		'".$_SERVER[REQUEST_METHOD]."','".addslashes($_SERVER[REQUEST_URI])."','".
-addslashes($_SERVER[HTTP_REFERER])."','".addslashes($_SERVER[HTTP_USER_AGENT])."','$ltime','".$_SERVER['REMOTE_ADDR']."','".$_SESSION['views']."')");
+addslashes($_SERVER[HTTP_REFERER])."','".addslashes($_SERVER[HTTP_USER_AGENT])."','$ltime','".$_SERVER['REMOTE_ADDR']."','".$_SESSION['views']."','$seid')");
+
 require_once EMLOG_ROOT.'/lib/function.login.php';
 
 doStripslashes();

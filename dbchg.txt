@@ -1,13 +1,29 @@
-ÄúÕæµÄÒª:DROP TABLE `conceptnet_frame`, `conceptnet_relation`, `cruboy_assertion`, `vaddlog`;
-ALTER TABLE `cruboy_concept`
-  DROP `backheight`,
-  DROP `ctop`,
-  DROP `cleft`,
-  DROP `num_assertions`,
-  DROP `visible`,
-  DROP `f1`,
-  DROP `f2`,
-  DROP `f3`;
-ALTER TABLE `cruboy_concept` CHANGE `text` `text` VARCHAR( 400 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL 
-RENAME TABLE `jt`.`cruboy_concept` TO `jt`.`concept` ;
 
+CREATE TABLE IF NOT EXISTS `jt_accelog` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `method` varchar(10) NOT NULL,
+  `tou` varchar(300) NOT NULL,
+  `lastu` varchar(300) NOT NULL,
+  `expler` text,
+  `vdate` datetime NOT NULL,
+  `aip` varchar(20) NOT NULL DEFAULT '',
+  `times` int(10) unsigned NOT NULL DEFAULT '1',
+  `seid` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 
+
+
+CREATE TABLE IF NOT EXISTS `jt_children` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) NOT NULL DEFAULT '',
+  `seid` varchar(100) NOT NULL DEFAULT '',
+  `vid` int(11) NOT NULL DEFAULT '0',
+  `vdate` datetime NOT NULL,
+  `ip` varchar(20) NOT NULL DEFAULT '',
+  `age` int(11) NOT NULL DEFAULT '0',
+  `photo` varchar(255) NOT NULL DEFAULT '',
+  `link` varchar(200) NOT NULL DEFAULT '',
+  `content` varchar(400) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `username` (`name`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8

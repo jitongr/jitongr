@@ -50,7 +50,7 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
 </style>
 <div id="content">
 <div id="crucify" class="crucify">
-<a  class="j17" href="index.php?age=17#crucify"></a>
+<a  class="j17" href="index.php?age=17#crucify" title='dddd'></a>
 <a  class="j11" href="index.php?age=11#crucify"></a>	
 <a  class="j5" href="index.php?age=5#crucify"></a>	
 	

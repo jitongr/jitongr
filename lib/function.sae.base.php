@@ -60,33 +60,8 @@ function htmlClean($content, $wrap=true){
  */
 function getIp(){
 	$ip = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '';
-	if(!preg_match("/^\d+\.\d+\.\d+\.\d+$/", $ip)){
-		$ip = '';
-	}
+
 	return $ip;
-}
-
-/**
- * 获取博客地址(仅限根目录脚本使用,目前仅用于首页ajax请求)
- */
-function getBlogUrl(){
-	$phpself = isset($_SERVER['SCRIPT_NAME']) ? $_SERVER['SCRIPT_NAME'] : '';
-	if(preg_match("/^.*\//", $phpself, $matches)){
-		return 'http://'.$_SERVER['HTTP_HOST'].$matches[0];
-	}else{
-		return BLOG_URL;
-	}
-}
-
-/**
- * 检查插件
- */
-function checkPlugin($plugin) {
-    if (is_string($plugin) && preg_match("/^[\w\-\/]+\.php$/", $plugin) && file_exists(EMLOG_ROOT . '/content/plugins/' . $plugin)) {
-        return true;
-    } else {
-        return false;
-    }
 }
 
 /**
@@ -134,31 +109,6 @@ function subString($strings,$start,$length){
 		}
 		return $str;
 	}
-}
-
-/**
- * 从可能包含html标记的内容中萃取纯文本摘要
- *
- * @param string $data
- * @param int $len
- */
-function extractHtmlData($data, $len) {
-	$data = strip_tags(subString($data, 0, $len + 30));
-	$search = array ("/([\r\n])[\s]+/",	// 去掉空白字符
-		             "/&(quot|#34);/i",	// 替换 HTML 实体
-		             "/&(amp|#38);/i",
-		             "/&(lt|#60);/i",
-		             "/&(gt|#62);/i",
-		             "/&(nbsp|#160);/i",
-					 "/&(iexcl|#161);/i",
-					 "/&(cent|#162);/i",
-		             "/&(pound|#163);/i",
-		             "/&(copy|#169);/i",
-		             "/\"/i",
-					);
-	$replace = array (" ","\"","&"," "," ","",chr(161),chr(162),chr(163),chr(169), "");
-	$data = subString(preg_replace($search, $replace, $data), 0, $len);
-	return $data;
 }
 
 /**
@@ -216,58 +166,6 @@ function pagination($count,$perlogs,$page,$url,$anchor=''){
 	return $re;
 }
 
-/**
- * 该函数在插件中调用,挂载插件函数到预留的钩子上
- *
- * @param string $hook
- * @param string $actionFunc
- * @return boolearn
- */
-function addAction($hook, $actionFunc){
-	global $emHooks;
-	if (!@in_array($actionFunc, $emHooks[$hook])){
-		$emHooks[$hook][] = $actionFunc;
-	}
-	return true;
-}
-
-/**
- * 执行挂在钩子上的函数,支持多参数 eg:doAction('post_comment', $author, $email, $url, $comment);
- *
- * @param string $hook
- */
-function doAction($hook){
-	global $emHooks;
-	$args = array_slice(func_get_args(), 1);
-	if (isset($emHooks[$hook])){
-		foreach ($emHooks[$hook] as $function){
-			$string = call_user_func_array($function, $args);
-		}
-	}
-}
-
-/**
- * 日志分割
- *
- * @param string $content 日志内容
- * @param int $lid 日志id
- */
-function breakLog($content,$lid){
-	$a = explode('[break]',$content,2);
-	if(!empty($a[1]))
-	$a[0].='<p class="readmore"><a href="'.Url::log($lid).'">阅读全文&gt;&gt;</a></p>';
-	return $a[0];
-}
-
-/**
- * 删除[break]标签
- *
- * @param string $content 日志内容
- */
-function rmBreak($content){
-	$content = str_replace('[break]','',$content);
-	return $content;
-}
 
 /**
  * 时间转化函数
@@ -585,67 +483,6 @@ function getMonthDayNum($month, $year) {
             break;
     }
 }
-/**
- * 解压zip
- */
-function emUnZip ($zipfile, $path, $type = 'tpl') {
-	if(class_exists('ZipArchive', FALSE)) {
-	    $zip = new ZipArchive();
-	    if (@$zip->open($zipfile) === TRUE) {
-	    	$r = explode('/', $zip->getNameIndex(0), 2);
-	    	$dir = isset($r[0]) ? $r[0].'/' : '';
-	    	switch ($type) {
-	    		case 'tpl':
-	    			$re = $zip->getFromName($dir.'header.php');
-	    			if (false === $re)
-	    			return -2;
-	    			break;
-	    		case 'plugin':
-	    			$plugin_name = substr($dir, 0, -1);
-	    			$re = $zip->getFromName($dir.$plugin_name.'.php');
-	    			if (false === $re)
-	    				return -1;
-	    			break;
-	    	}
-	    	if (true === @$zip->extractTo($path)) {
-	    		$zip->close();
-	    		return 0;
-	    	} else {
-	    		return 1;
-	    	}
-		} else {
-		    return 2;
-		}
-	} else {
-		return 3;
-	}
-}
-
-/**
- * 删除文件或目录
- */
-function emDeleteFile ($file){
-    if (empty($file))
-    	return false;
-    if (@is_file($file))
-        return @unlink($file);
-   	$ret = true;
-   	if ($handle = @opendir($file)) {
-		while ($filename = @readdir($handle)){
-			if ($filename == '.' || $filename == '..')
-				continue;
-			if (!emDeleteFile($file . '/' . $filename))
-				$ret = false;
-		}
-   	} else {
-   		$ret = false;
-   	}
-   	@closedir($handle);
-	if ( file_exists($file) && !rmdir($file) ){
-		$ret = false;
-	}
-   	return $ret;
-}
 
 /**
  * 页面跳转
@@ -677,7 +514,7 @@ EOT;
 	}
 	echo <<<EOT
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>emlog system message</title>
+<title>jitong message</title>
 <style type="text/css">
 <!--
 body {

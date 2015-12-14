@@ -6,7 +6,7 @@ define('DB_USER','jitong');
 //database password
 define('DB_PASSWD','lin');
 //database name
-define('DB_NAME','jt');
+define('DB_NAME','jitongr');
 //database prefix
 define('DB_PREFIX','jt_');
 //auth key
